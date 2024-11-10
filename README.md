@@ -4,3 +4,4 @@ As of the time of this, Lightworks in nixpkgs is broken.  I have a PR but I'm im
 
 There's no reason for me not to share this.  Here you go!
 
+To run this, I just do `nix run`. This will only work on Linux, but I think it should work on pretty much any x86_64 Linux, not just Nixos. 
