@@ -9,31 +9,31 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; config.allowUnfree = true;};
-      fullPath = pkgs.lib.makeLibraryPath [
-        pkgs.stdenv.cc.cc
-        pkgs.gtk3
-        pkgs.gdk-pixbuf
-        pkgs.cairo
-        pkgs.libjpeg_original
-        pkgs.glib
-        pkgs.pango
-        pkgs.libGL
-        pkgs.libGLU
-        pkgs.nvidia_cg_toolkit
-        pkgs.zlib
-        pkgs.openssl
-        pkgs.libuuid
-        pkgs.alsa-lib
-        pkgs.libjack2
-        pkgs.udev
-        pkgs.freetype
-        pkgs.libva
-        pkgs.libvdpau
-        pkgs.twolame
-        pkgs.gmp
-        pkgs.libdrm
-        pkgs.libpulseaudio
-      ];
+      fullPath = pkgs.lib.makeLibraryPath (with pkgs; [
+        stdenv.cc.cc
+        gtk3
+        gdk-pixbuf
+        cairo
+        libjpeg_original
+        glib
+        pango
+        libGL
+        libGLU
+        nvidia_cg_toolkit
+        zlib
+        openssl
+        libuuid
+        alsa-lib
+        libjack2
+        udev
+        freetype
+        libva
+        libvdpau
+        twolame
+        gmp
+        libdrm
+        libpulseaudio
+      ]);
     in
     {
       packages.${system}.default = pkgs.buildFHSEnv {
